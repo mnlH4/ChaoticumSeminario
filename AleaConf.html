@@ -130,12 +130,26 @@
                         showDiapo(conf.urlSlide+'?diapo='+Math.floor(Math.random()*conf.diapos.length));
                     }
                     */
-                    showDiapo(conf.urlSlide+'?diapo='+Math.floor(Math.random()*conf.diapos.length));
+                    url =conf.urlSlide+'?diapo='+Math.floor(Math.random()*conf.diapos.length);
+                    let url1, url2, url3;
+                    url1=conf.urlSlide+'?diapo='+Math.floor(Math.random()*conf.diapos.length);
+                    url2=conf.urlSlide+'?diapo='+Math.floor(Math.random()*conf.diapos.length);
+                    url3=conf.urlSlide+'?diapo='+Math.floor(Math.random()*conf.diapos.length);
+                    showDiapo(url, url1,url2,url3);
 
                 }
-                function showDiapo(url){
+                function showDiapo(url,url1,url2,url3){
                     console.log(url);
                     d3.select('#aleaDiapo').attr('src',url);
+                    d3.select('#hyplink1').append("a")
+  		                                 .attr("href",url1)
+  		                                 .html("Diapo 1");
+                    d3.select('#hyplink2').append("a")
+  		                                 .attr("href",url2)
+  		                                 .html("Diapo 2");
+                    d3.select('#hyplink3').append("a")
+  		                                 .attr("href",url3)
+  		                                 .html("Diapo 3");
                 }
 
             </script>
@@ -146,9 +160,15 @@
                 <div class="row">
                     <div class="col-sm-2"></div>
                     <div class="col-sm-8 bg-white">
-                        <iframe id="aleaDiapo" frameBorder="0"></iframe>
+                        <iframe id="aleaDiapo" frameBorder="0">                           
+                        </iframe>
+                        <div class="row">
+                        <div class="col-sm-2" id="hyplink1"></div>
+                        <div class="col-sm-8" id="hyplink2"></div>
+                        <div class="col-sm-2" id="hyplink3"></div>  
+                        </div>                     
                     </div>
-                    <div class="col-sm-2"></div>
+                    
                 </div>
             </div>
                 <div id="svgLoad"></div>
